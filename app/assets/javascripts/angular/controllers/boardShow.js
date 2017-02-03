@@ -4,7 +4,9 @@ Djello.controller('BoardShowCtrl',
 
   function($scope, $stateParams, boardService) {
 
-    $scope.board = boardService.show($stateParams.id);
+    boardService.show($stateParams.id).then(function(board) {
+      $scope.board = board;
+    });
 
   }
 
