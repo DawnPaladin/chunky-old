@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'angularjs-rails'
 
 # Use Angular Devise for user authentication
+gem 'devise'
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end

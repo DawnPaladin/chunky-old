@@ -1,4 +1,4 @@
-var Djello = angular.module('Djello', ['ui.router', 'restangular']);
+var Djello = angular.module('Djello', ['ui.router', 'restangular', 'Devise']);
 // TODO: rename to Chunky/Prello
 
 Djello.config(
