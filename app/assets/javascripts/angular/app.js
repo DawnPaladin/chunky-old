@@ -13,21 +13,24 @@ Djello.config(
   ['$stateProvider', '$urlRouterProvider',
 
   function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/board')
+    $urlRouterProvider.otherwise('')
 
     $stateProvider
-      .state('board', {
-        url: '/board',
+      .state('main', {
+        url: '',
         views: {
-          'board@': {
-            templateUrl: '/templates/board.html',
-            controller: ['$scope', function($scope) {
-              $scope.temp = "Hello World!";
-            }]
-          },
           'board-switcher@': {
             templateUrl: '/templates/board_switcher.html',
             controller: 'BoardSwitcherCtrl'
+          }
+        }
+      })
+      .state('main.board', {
+        url: '/board/:id',
+        views: {
+          'board@': {
+            templateUrl: '/templates/board.html',
+            controller: 'BoardShowCtrl'
           }
         }
       })

@@ -7,7 +7,10 @@ Djello.factory('boardService',
     var exports = {};
 
     exports.all = function() {
-      return Restangular.all('boards').getList().$object;
+      return Restangular.all('boards').getList()
+        .then(function(data) {
+          return data;
+        });
     }
 
     exports.create = function(boardName) {
@@ -16,6 +19,13 @@ Djello.factory('boardService',
           name: boardName
         }
       }).then(function(data) {
+          return data;
+        })
+    }
+
+    exports.show = function(boardId) {
+      return Restangular.one('boards', boardId).get()
+        .then(function(data) {
           return data;
         })
     }
