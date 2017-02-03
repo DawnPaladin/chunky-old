@@ -16,6 +16,12 @@ Djello.config(
             controller: ['$scope', function($scope) {
               $scope.temp = "Hello World!";
             }]
+          },
+          'board-switcher@': {
+            templateUrl: '/templates/board_switcher.html',
+            controller: ['$scope', function($scope) {
+              $scope.temp = "Goodbye World!";
+            }]
           }
         }
       })
