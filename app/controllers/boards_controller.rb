@@ -15,13 +15,14 @@ class BoardsController < ApplicationController
   end
 
   def index
-    @boards = Board.all
+    @boards = current_user.boards
     respond_to do |format|
-      format.json { render json: @boards }
+      format.json { render json: @boards.to_json }
     end
   end
 
   private
+
     def board_params
       require(:board).permit(:name)
     end

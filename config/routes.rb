@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'angular#index'
 
   scope :api do
-    scope :vi do
+    scope :v1 do
       resources :boards, only: [:create, :index]
     end
   end

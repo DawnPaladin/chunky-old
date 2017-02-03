@@ -1,9 +1,15 @@
 Djello.controller('BoardSwitcherCtrl',
-  ['$scope', 'Restangular',
-    function($scope, restangular) {
-      $scope.createBoard = function() {
-        
-      }
+
+  ['$scope', 'Restangular', 'boardService',
+
+  function($scope, Restangular, boardService) {
+
+    $scope.boards = boardService.all();
+
+    $scope.createBoard = function() {
+
     }
-  ]
-);
+
+  }
+
+]);
