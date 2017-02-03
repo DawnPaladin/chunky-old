@@ -7,7 +7,8 @@ Djello.controller('BoardSwitcherCtrl',
     $scope.boards = boardService.all();
 
     $scope.createBoard = function() {
-
+      console.log($scope.newBoard.name);
+      boardService.create($scope.newBoard.name);
     }
 
   }

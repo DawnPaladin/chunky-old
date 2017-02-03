@@ -7,7 +7,7 @@
     <option value="">Select Board</option>
   </select>
 
-  <form class='new-board-form form form-inline' ng-submit="createBoard()" name="new-board">
+  <form class='new-board-form form form-inline' ng-submit="createBoard(boardName)" name="new-board">
     New board:
     <div class="form-group">
       <input type="text" name="name" ng-model="newBoard.name" class="form-control">

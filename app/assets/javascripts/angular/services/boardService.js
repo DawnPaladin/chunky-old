@@ -10,7 +10,7 @@ Djello.factory('boardService',
       return Restangular.all('boards').getList().$object;
     }
 
-    exports.add = function(boardName) {
+    exports.create = function(boardName) {
       return Restangular.all('boards').post({
         board: {
           name: boardName

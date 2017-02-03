@@ -7,7 +7,7 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.json { render json: @resource }
+        format.json { render json: @board.to_json }
       else
         format.json { render json: { errors: @board.errors.full_messages, status: :unprocessable_entity } }
       end
@@ -24,7 +24,7 @@ class BoardsController < ApplicationController
   private
 
     def board_params
-      require(:board).permit(:name)
+      params.require(:board).permit(:name)
     end
 
 end
