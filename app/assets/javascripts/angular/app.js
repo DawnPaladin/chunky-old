@@ -10,10 +10,14 @@ Djello.config(
     $stateProvider
       .state('board', {
         url: '/board',
-        templateUrl: '/templates/board.html',
-        controller: ['$scope', function($scope) {
-          $scope.temp = "Hello World!";
-        }]
+        views: {
+          'board@': {
+            templateUrl: '/templates/board.html',
+            controller: ['$scope', function($scope) {
+              $scope.temp = "Hello World!";
+            }]
+          }
+        }
       })
   }
 ])
