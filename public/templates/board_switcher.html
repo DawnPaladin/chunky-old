@@ -1,16 +1,14 @@
 <div class="board-switcher">
-  <div class="hidden">
-    <a href="#">New board</a>
-  </div>
-
   <select ng-model="boards" ng-options="board.id as board.name for board in boards" class="form-control">
     <option value="">Select Board</option>
   </select>
 
-  <form class='new-board-form form form-inline' ng-submit="createBoard(boardName)" name="new-board">
-    New board:
+  <div class="new-board-link">
+    <a href="#" ng-click="toggleBoardForm()">New board</a>
+  </div>
+  <form class='new-board-form form form-inline' ng-submit="createBoard(boardName)" name="new-board" ng-show="showBoardForm">
     <div class="form-group">
-      <input type="text" name="name" ng-model="newBoard.name" class="form-control">
+      <input placeholder="Name your board" type="text" name="name" ng-model="newBoard.name" class="form-control">
     </div>
     <input type="submit" class="btn btn-default">
   </form>
