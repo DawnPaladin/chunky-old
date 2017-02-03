@@ -30,6 +30,13 @@ Djello.factory('boardService',
         })
     }
 
+    exports.delete = function(boardId) {
+      return Restangular.one('boards', boardId).remove()
+      .then(function(data) {
+        return data;
+      })
+    }
+
     return exports;
 
   }

@@ -28,6 +28,17 @@ class BoardsController < ApplicationController
     end
   end
 
+  def destroy
+    @board = current_user.boards.find_by_id(params[:id]);
+    respond_to do |format|
+      if @board.destroy
+        format.json { render json: @board.to_json }
+      else
+        format.json { render json: { errors: @board.errors.full_messages, status: :unprocessable_entity } }
+      end
+    end
+  end
+
   private
 
     def board_params

@@ -22,6 +22,15 @@ Djello.config(
           'board-switcher@': {
             templateUrl: '/templates/board_switcher.html',
             controller: 'BoardSwitcherCtrl'
+          },
+        }
+      })
+      .state('main.new-board', {
+        url: '/board/new',
+        views: {
+          'new-board@': {
+            templateUrl: '/templates/board_new.html',
+            controller: 'BoardNewCtrl'
           }
         }
       })
