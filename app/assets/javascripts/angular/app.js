@@ -13,7 +13,7 @@ Djello.config(
   ['$stateProvider', '$urlRouterProvider',
 
   function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('')
+    $urlRouterProvider.otherwise('/')
 
     $stateProvider
       .state('main', {
@@ -22,22 +22,28 @@ Djello.config(
           'board-switcher@': {
             templateUrl: '/templates/board_switcher.html',
             controller: 'BoardSwitcherCtrl'
-          },
-        }
+          }
+        },
+        resolve: {
+          boards: function(boardService) {
+            boardService.all();
+          }
+        },
+        abstract: true
       })
       .state('main.new-board', {
-        url: '/board/new',
+        url: '/',
         views: {
-          'new-board@': {
+          'main-area@': {
             templateUrl: '/templates/board_new.html',
             controller: 'BoardNewCtrl'
           }
         }
       })
-      .state('main.board', {
+      .state('main.show-board', {
         url: '/board/:id',
         views: {
-          'board@': {
+          'main-area@': {
             templateUrl: '/templates/board.html',
             controller: 'BoardShowCtrl'
           }

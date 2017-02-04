@@ -4,12 +4,14 @@ Djello.factory('boardService',
 
   function(Restangular) {
 
+    var _boards;
+
     var exports = {};
 
     exports.all = function() {
       return Restangular.all('boards').getList()
         .then(function(data) {
-          return data;
+          return _boards = data;
         });
     }
 
@@ -35,6 +37,10 @@ Djello.factory('boardService',
       .then(function(data) {
         return data;
       })
+    }
+
+    exports.getBoards = function() {
+      return _boards; 
     }
 
     return exports;

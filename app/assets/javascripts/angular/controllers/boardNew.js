@@ -1,3 +1,13 @@
-Djello.controller('BoardNewCtrl', ['$scope', function($scope) {
-  $scope.test = "hello"
-}]);
+Djello.controller('BoardNewCtrl',
+
+  ['$scope', 'boardService',
+
+  function($scope, boardService) {
+
+    $scope.createBoard = function() {
+      boardService.create($scope.newBoard.name);
+    }
+
+  }
+
+]);
