@@ -17,4 +17,5 @@
 //= require angular-ui-router.js
 //= require lodash.js
 //= require restangular.js
+//= require angular-modal-service
 //= require_tree .

@@ -1,6 +1,6 @@
 Chunky.factory('boardService',
-  ['Restangular',
-    function(Restangular) {
+  ['Restangular', 'listService',
+    function(Restangular, listService) {
       var _boards;
       var exports = {};
 
@@ -18,28 +18,30 @@ Chunky.factory('boardService',
           }
         }).then(function(data) {
             return data;
-          })
-      }
+          });
+      };
 
       exports.show = function(boardId) {
         return Restangular.one('boards', boardId).get()
           .then(function(data) {
+            console.log(data)
+            listService.setup(data.lists);
             return data;
-          })
-      }
+          });
+      };
 
       exports.delete = function(boardId) {
         return Restangular.one('boards', boardId).remove()
         .then(function(data) {
           return data;
-        })
-      }
+        });
+      };
 
       exports.getBoards = function() {
         return _boards;
-      }
+      };
 
       return exports;
     }
   ]
-)
+);

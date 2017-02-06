@@ -1,5 +1,4 @@
-var Chunky = angular.module('Chunky', ['ui.router', 'restangular', 'Devise']);
-// TODO: rename to Chunky/Prello
+var Chunky = angular.module('Chunky', ['ui.router', 'restangular', 'Devise', 'angularModalService']);
 
 Chunky.config( ['RestangularProvider', function(RestangularProvider) {
   RestangularProvider.setBaseUrl('/api/v1');

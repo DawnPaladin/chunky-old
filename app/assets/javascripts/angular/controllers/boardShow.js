@@ -7,7 +7,9 @@ Chunky.controller('BoardShowCtrl',
     boardService.show($stateParams.id).then(function(board) {
       $scope.board = board;
       $scope.lists = board.lists;
-      console.log($scope.lists);
+      $('.board').on('click', '.card', function(event) {
+        console.log(event);
+      });
     });
 
   }
