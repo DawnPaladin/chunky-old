@@ -10,6 +10,9 @@ Chunky.controller('BoardShowCtrl',
       $('.board').on('click', '.card', function(event) {
         console.log(event);
       });
+      $scope.showCard = function(id) {
+        $('.modal[data-id='+id+']').modal();
+      }
     });
 
   }

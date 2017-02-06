@@ -3,8 +3,11 @@
 <div class="lists">
   <div ng-repeat="list in lists" class="list">
     <div class="list-name">{{ list.name }}</div>
-    <div ng-repeat="card in list.cards" class="card">
-      <div class="card-title">{{ card.title }}</div>
+    <div ng-repeat="card in list.cards">
+      <div class="card">
+        <div class="card-title" ng-click="showCard(card.id)">{{ card.title }}</div>
+      </div>
+      <card-modal></card-modal>
     </div>
   </div>
 </div>

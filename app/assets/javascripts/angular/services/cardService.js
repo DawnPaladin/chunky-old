@@ -1,6 +1,6 @@
 Chunky.factory('cardService',
-  ['Restangular',
-    function(Restangular) {
+  [
+    function() {
       var _cards = [];
       var exports = {};
 
@@ -10,7 +10,6 @@ Chunky.factory('cardService',
             _cards.push(card);
           });
         });
-        console.log(_cards);
       };
 
       return exports;

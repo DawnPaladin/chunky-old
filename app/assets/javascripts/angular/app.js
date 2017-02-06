@@ -1,4 +1,4 @@
-var Chunky = angular.module('Chunky', ['ui.router', 'restangular', 'Devise', 'angularModalService']);
+var Chunky = angular.module('Chunky', ['ui.router', 'restangular', 'Devise']);
 
 Chunky.config( ['RestangularProvider', function(RestangularProvider) {
   RestangularProvider.setBaseUrl('/api/v1');

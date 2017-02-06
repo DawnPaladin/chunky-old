@@ -26,6 +26,8 @@
     ]
   },
   "globals": {
-    "Chunky": false
+    "Chunky": false,
+    "$": false,
+    "angular": false
   }
 }
