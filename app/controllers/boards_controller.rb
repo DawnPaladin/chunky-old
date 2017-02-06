@@ -7,7 +7,7 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.json { render json: @board.to_json }
+        format.json { render json: @board }
       else
         format.json { render json: { errors: @board.errors.full_messages, status: :unprocessable_entity } }
       end
@@ -17,14 +17,14 @@ class BoardsController < ApplicationController
   def index
     @boards = current_user.boards
     respond_to do |format|
-      format.json { render json: @boards.to_json }
+      format.json { render json: @boards }
     end
   end
 
   def show
     @board = current_user.boards.find_by_id(params[:id]);
     respond_to do |format|
-      format.json { render json: @board.to_json }
+      format.json { render json: @board }
     end
   end
 
@@ -32,7 +32,7 @@ class BoardsController < ApplicationController
     @board = current_user.boards.find_by_id(params[:id]);
     respond_to do |format|
       if @board.destroy
-        format.json { render json: @board.to_json }
+        format.json { render json: @board }
       else
         format.json { render json: { errors: @board.errors.full_messages, status: :unprocessable_entity } }
       end
