@@ -43,3 +43,15 @@
   padding: .5em;
   cursor: pointer;
 }
+
+.modal {
+  &.in { background: rgba(0,0,0,0.35)}
+  div.modal-content { box-shadow: none; }
+  .card-title {
+    font-weight: bold;
+    margin: .5em 0;
+  }
+  .card-field-name {
+    color: gray;
+  }
+}
