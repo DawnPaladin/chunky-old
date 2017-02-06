@@ -1,4 +1,4 @@
-Djello.factory('boardService',
+Chunky.factory('boardService',
 
   ['Restangular',
 

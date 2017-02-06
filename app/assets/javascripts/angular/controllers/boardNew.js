@@ -1,4 +1,4 @@
-Djello.controller('BoardNewCtrl',
+Chunky.controller('BoardNewCtrl',
 
   ['$scope', 'boardService',
 

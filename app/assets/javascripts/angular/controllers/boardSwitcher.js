@@ -1,4 +1,4 @@
-Djello.controller('BoardSwitcherCtrl',
+Chunky.controller('BoardSwitcherCtrl',
 
   ['$scope', '$state', '$stateParams', 'boardService',
 

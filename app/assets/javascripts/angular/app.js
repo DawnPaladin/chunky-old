@@ -1,7 +1,7 @@
-var Djello = angular.module('Djello', ['ui.router', 'restangular', 'Devise']);
+var Chunky = angular.module('Chunky', ['ui.router', 'restangular', 'Devise']);
 // TODO: rename to Chunky/Prello
 
-Djello.config( ['RestangularProvider', function(RestangularProvider) {
+Chunky.config( ['RestangularProvider', function(RestangularProvider) {
   RestangularProvider.setBaseUrl('/api/v1');
   RestangularProvider.setRequestSuffix('.json');
   RestangularProvider.setDefaultHttpFields({
@@ -9,7 +9,7 @@ Djello.config( ['RestangularProvider', function(RestangularProvider) {
   });
 }])
 
-Djello.config(
+Chunky.config(
   ['$stateProvider', '$urlRouterProvider',
 
   function($stateProvider, $urlRouterProvider) {
