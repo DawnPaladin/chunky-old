@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require angular
 //= require angular-devise
 //= require angular-ui-router.js
 //= require lodash.js
 //= require restangular.js
-//= require bootstrap-sprockets
 //= require_tree .

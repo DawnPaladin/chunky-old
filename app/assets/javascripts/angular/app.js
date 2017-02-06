@@ -4,22 +4,22 @@ Chunky.config( ['RestangularProvider', function(RestangularProvider) {
   RestangularProvider.setBaseUrl('/api/v1');
   RestangularProvider.setRequestSuffix('.json');
   RestangularProvider.setDefaultHttpFields({
-      "content-type": "application/json"
+    "content-type": "application/json"
   });
-}])
+}]);
 
 Chunky.config(
   ['$stateProvider', '$urlRouterProvider',
 
   function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/')
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
       .state('main', {
         url: '',
         views: {
           'board-switcher@': {
-            templateUrl: '/templates/board_switcher.html',
+            templateUrl: '/templates/board-switcher.html',
             controller: 'BoardSwitcherCtrl'
           }
         },
@@ -34,7 +34,7 @@ Chunky.config(
         url: '/',
         views: {
           'main-area@': {
-            templateUrl: '/templates/board_new.html',
+            templateUrl: '/templates/board-new.html',
             controller: 'BoardNewCtrl'
           }
         }
@@ -47,6 +47,6 @@ Chunky.config(
             controller: 'BoardShowCtrl'
           }
         }
-      })
+      });
   }
-])
+]);

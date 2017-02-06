@@ -9,7 +9,7 @@ Chunky.factory('boardService',
           .then(function(data) {
             return _boards = data;
           });
-      }
+      };
 
       exports.create = function(boardName) {
         return Restangular.all('boards').post({
@@ -24,7 +24,6 @@ Chunky.factory('boardService',
       exports.show = function(boardId) {
         return Restangular.one('boards', boardId).get()
           .then(function(data) {
-            console.log(data)
             listService.setup(data.lists);
             return data;
           });
