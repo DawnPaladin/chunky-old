@@ -24,7 +24,14 @@ class BoardsController < ApplicationController
   def show
     @board = current_user.boards.find_by_id(params[:id]);
     respond_to do |format|
-      format.json { render json: @board.to_json(include: :lists) }
+      # format.json { render json: @board.to_json(include: :lists) }
+      format.json do
+        render json: @board.as_json(include: {
+          lists: {
+            include: { cards: { only: :title } }
+          }
+        })
+      end
     end
   end
 
