@@ -8,6 +8,13 @@ Chunky.controller('BoardShowCtrl',
         $scope.showCard = function(id) {
           $('.modal[data-id='+id+']').modal();
         };
+        $scope.showEditable = function() {
+          $scope.editDescription = true;
+        };
+        $scope.hideEditable = function(content) {
+          $scope.editDescription = false;
+          console.log(content);
+        }
       });
 
     }

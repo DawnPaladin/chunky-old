@@ -6,7 +6,24 @@
         <h4 class="card-title">{{card.title}}</h4>
         <div class="card-field">
           <div class="card-field-name">Description</div>
-          <p>{{card.description}}</p>
+          <div class="card-description">
+            <div class="form-inline">
+              <textarea
+                id="editable"
+                class="form-control"
+                ng-show="editDescription"
+                ng-model="card.description"
+                ng-blur="hideEditable(card.description)">
+              </textarea>
+              <button
+                class="btn btn-success"
+                ng-click="hideEditable(card.description)"
+                ng-show="editDescription">
+                Save
+              </button>
+            </div>
+            <p ng-hide="editDescription" ng-click="showEditable()">{{ card.description }}</p>
+          </div>
         </div>
       </div>
     </div><!-- /.modal-content -->
