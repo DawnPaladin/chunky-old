@@ -2,11 +2,12 @@
   <select ng-model="selectedBoard" ng-options="board.id as board.name for board in boards" class="form-control">
   </select>
 
+  <div class="delete-board-link">
+    <a href="#" ng-click="deleteBoard()">Delete board</a>
+  </div>
+
   <div class="new-board-link">
     <a ui-sref="main.new-board">New board</a>
   </div>
 
-  <div class="delete-board-link">
-    <a href="#" ng-click="deleteBoard()">Delete board</a>
-  </div>
 </div>

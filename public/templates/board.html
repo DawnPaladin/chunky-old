@@ -1,5 +1,7 @@
 <h1>{{ board.name }}</h1>
 
-<div ng-repeat="list in lists">
-  <div>{{ list.name }}</div>
+<div class="lists">
+  <div ng-repeat="list in lists" class="list">
+    <div class="list-name">{{ list.name }}</div>
+  </div>
 </div>
