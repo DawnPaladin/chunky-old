@@ -15,6 +15,7 @@ Chunky.factory('cardService',
 
       exports.save = function(card) {
         card.put();
+        card.updated_at = new Date;
         // Restangular.one('cards', card.id).put({card: card});
       };
 
