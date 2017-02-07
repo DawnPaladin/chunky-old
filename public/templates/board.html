@@ -4,7 +4,7 @@
   <div ng-repeat="list in lists" class="list">
     <div class="list-name">{{ list.name }}</div>
 
-    <div ng-repeat="card in list.cards | orderBy: 'updated_at'">
+    <div ng-repeat="card in list.cards | completed: false | orderBy: 'updated_at'">
       <div class="card">
         <div class="completed-box">
           <input type="checkbox" ng-model="card.completed">
@@ -33,6 +33,20 @@
       </div>
     </div>
 
-
+  </div>
+  <div class="list completed-list">
+    <div class="list-name">Completed</div>
+    <div ng-repeat="card in allCards | completed: true | orderBy: 'updated_at'">
+      <div class="card">
+        <div class="completed-box">
+          <input type="checkbox" ng-model="card.completed">
+        </div>
+        <div class="card-content" ng-click="showCard(card.id)">
+          <div class="card-title">{{ card.title }}</div>
+          <span class="glyphicon glyphicon-align-left description-icon" aria-hidden="true" ng-show="card.description.length > 0"></span>
+        </div>
+      </div>
+      <card-modal></card-modal>
+    </div>
   </div>
 </div>

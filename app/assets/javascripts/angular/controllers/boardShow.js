@@ -5,6 +5,7 @@ Chunky.controller('BoardShowCtrl',
       boardService.show($stateParams.id).then(function(board) {
         $scope.board = board;
         $scope.lists = board.lists;
+        $scope.allCards = cardService.cards;
         $scope.showCard = function(id) {
           $('.modal[data-id='+id+']').modal();
         };
