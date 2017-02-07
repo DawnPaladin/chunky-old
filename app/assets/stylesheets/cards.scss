@@ -4,21 +4,22 @@
   margin: 4px;
   display: flex;
   flex-direction: row;
-}
-
-.card-content {
-  cursor: pointer;
-  padding: .5em;
-  flex-grow: 5;
-}
-
-.completed-box {
-  padding: .5em 0 0 .5em;
+  .card-content {
+    cursor: pointer;
+    padding: .5em;
+    flex-grow: 5;
+  }
+  .completed-box {
+    padding: .5em 0 0 .5em;
+  }
 }
 
 .modal {
   &.in { background: rgba(0,0,0,0.35)}
   div.modal-content { box-shadow: none; }
+  .completed-box {
+    padding: .5em .5em 0 0;
+  }
   .card-title {
     font-weight: bold;
     margin: .5em 0;
@@ -26,6 +27,11 @@
   .card-field-name {
     color: gray;
   }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .description-icon {

@@ -4,10 +4,26 @@ Chunky.factory('cardService',
       var exports = {};
       exports.cards = [];
 
+      function BlankChildCardOf(card) {
+        this.parent_id = card.id;
+        this.title = "";
+      }
+
+      var setupCard = function(card) {
+        Restangular.restangularizeElement(null, card, 'cards');
+        card.showNewCard = false;
+        card.newChildCard = new BlankChildCardOf(card);
+        card.createChildCard = function() {
+          setupCard(card.newChildCard);
+          exports.create(card.newChildCard);
+          card.newChildCard = new BlankChildCardOf(card);
+        };
+      };
+
       exports.setup = function(lists) {
         lists.forEach(function(list) {
           list.cards.forEach(function(card) {
-            Restangular.restangularizeElement(null, card, 'cards');
+            setupCard(card);
             exports.cards.push(card);
           });
         });

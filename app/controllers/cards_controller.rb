@@ -6,7 +6,7 @@ class CardsController < ApplicationController
     @card = Card.new(card_params)
 
     respond_to do |format|
-      if @card.list.board.user == current_user
+      if @card.parent_id.is_a? Integer || @card.list.board.user == current_user # FIXME: Verify that an ancestor belongs to current user
         if @card.save
           format.json { render json: @card }
         else
@@ -31,7 +31,7 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:id, :title, :description, :list_id, :created_at, :updated_at, :completed, :order)
+    params.require(:card).permit(:id, :title, :description, :list_id, :created_at, :updated_at, :completed, :order, :parent_id)
   end
 
 end
