@@ -30,6 +30,13 @@ class CardsController < ApplicationController
     end
   end
 
+  def show
+    @card = Card.find_by_id(params[:id])
+    respond_to do |format|
+      format.json { render json: @card, include: :children }
+    end
+  end
+
   def card_params
     params.require(:card).permit(:id, :title, :description, :list_id, :created_at, :updated_at, :completed, :order, :parent_id)
   end
