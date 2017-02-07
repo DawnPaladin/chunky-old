@@ -8,28 +8,31 @@ Chunky.factory('listService',
         this.showNewCard = true;
       };
 
+      var setupList = function(list) {
+        Restangular.restangularizeElement(null, list, 'lists');
+        list.showNewCard = false;
+        list.addNewCard = addNewCard;
+        list.newCard = {
+          list_id: list.id,
+          title: ""
+        };
+        Restangular.restangularizeElement(null, list.newCard, 'cards');
+      };
+
       exports.setup = function(lists) {
         _lists = lists;
         cardService.setup(lists);
         _lists.forEach(function(list) {
-          Restangular.restangularizeElement(null, list, 'lists');
-          list.showNewCard = false;
-          list.addNewCard = addNewCard;
-          list.newCard = {
-            list_id: list.id,
-            title: ""
-          };
+          setupList(list);
         });
       };
 
       exports.createCard = function(list) {
         cardService.create(list.newCard).then(function() {
-          list.get().then(function() {
-            list.newCard = {
-              list_id: list.id,
-              title: ""
-            };
-          })
+          Restangular.one('lists', list.id).get().then(function(response) {
+            angular.copy(response, list);
+            setupList(list);
+          });
         });
       };
 
