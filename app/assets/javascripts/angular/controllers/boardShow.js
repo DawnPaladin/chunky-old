@@ -5,7 +5,6 @@ Chunky.controller('BoardShowCtrl',
       boardService.show($stateParams.id).then(function(board) {
         $scope.board = board;
         $scope.lists = board.lists;
-        console.log($scope.lists);
         $scope.showCard = function(id) {
           $('.modal[data-id='+id+']').modal();
         };
@@ -14,7 +13,6 @@ Chunky.controller('BoardShowCtrl',
         };
         $scope.hideEditable = function(card) {
           $scope.editDescription = false;
-          console.log(card);
           cardService.save(card);
         };
         $scope.createCard = listService.createCard;
