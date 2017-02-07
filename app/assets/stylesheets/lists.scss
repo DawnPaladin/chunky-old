@@ -1,0 +1,39 @@
+.lists {
+  display: flex;
+  flex-direction: row;
+}
+
+.list {
+  width: 250px;
+  height: 1%; // expand with content
+  background: hsl(0, 0%, 90%);
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.list-name {
+  text-align: center;
+  font-weight: bold;
+  margin-top: .5em;
+}
+
+.new-card-link {
+  text-align: center;
+  padding: .5em;
+  cursor: pointer;
+}
+.new-card-input {
+  margin: 4px;
+  textarea {
+    margin-bottom: 4px;
+    resize: none;
+    border: none;
+  }
+  .close {
+    float: none;
+    margin-left: .25em;
+  }
+}
+.add-card-button {
+  padding: .25em 1em;
+}

@@ -11,21 +11,3 @@
   margin-top: .5em;
   float: right;
 }
-
-.lists {
-  display: flex;
-  flex-direction: row;
-}
-
-.list {
-  width: 250px;
-  background: hsl(0, 0%, 90%);
-  border-radius: 3px;
-  margin: 3px;
-}
-
-.list-name {
-  text-align: center;
-  font-weight: bold;
-  margin-top: .5em;
-}

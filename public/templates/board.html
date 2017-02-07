@@ -11,7 +11,15 @@
       <card-modal></card-modal>
     </div>
 
-    <div class="new-card">New card...</div>
+    <div class="new-card-link" ng-click="list.newCard()" ng-hide="list.showNewCard">New card...</div>
+    <div class="new-card-input" ng-show="list.showNewCard">
+      <textarea class="form-control"></textarea>
+      <div class="new-card-input-controls">
+        <button class="btn btn-success add-card-button">Add</button>
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    </div>
+
 
   </div>
 </div>
