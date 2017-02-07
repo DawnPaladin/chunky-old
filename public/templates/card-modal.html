@@ -32,7 +32,10 @@
               </div>
             </div>
             <div class="card-field-name">Child tasks</div>
-            <card ng-repeat="card in card.children"></card>
+            <div ng-repeat="card in card.children">
+              <card></card>
+              <card-modal></card-modal>
+            </div>
             <div>
               <button
                 class="btn btn-default"
