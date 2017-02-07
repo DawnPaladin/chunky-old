@@ -17,6 +17,7 @@ Chunky.factory('cardService',
           setupCard(card.newChildCard);
           exports.create(card.newChildCard);
           card.newChildCard = new BlankChildCardOf(card);
+          card.showNewCard = false;
         };
       };
 

@@ -4,14 +4,9 @@ Chunky.factory('listService',
       var _lists;
       var exports = {};
 
-      var addNewCard = function() {
-        this.showNewCard = true;
-      };
-
       var setupList = function(list) {
         Restangular.restangularizeElement(null, list, 'lists');
         list.showNewCard = false;
-        list.addNewCard = addNewCard;
         list.newCard = {
           list_id: list.id,
           title: ""
