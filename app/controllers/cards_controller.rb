@@ -1,40 +1,35 @@
 class CardsController < ApplicationController
 
   before_action :authenticate_user!
+  respond_to :json
 
   def create
     @card = Card.new(card_params)
 
-    respond_to do |format|
-      if @card.parent_id.is_a? Integer || @card.list.board.user == current_user # FIXME: Verify that an ancestor belongs to current user
-        if @card.save
-          format.json { render json: @card, include: { children: @card.children.to_json } }
-        else
-          format.json { render json: { errors: @card.errors.full_messages, status: :unprocessable_entity } }
-        end
+    if @card.parent_id.is_a? Integer || @card.list.board.user == current_user # FIXME: Verify that an ancestor belongs to current user
+      if @card.save
+        render json: @card, include: { children: @card.children.to_json }
       else
-        format.json { render json: { errors: @card.errors.full_messages, status: :unauthorized } }
+        render json: { errors: @card.errors.full_messages, status: :unprocessable_entity }
       end
+    else
+      render json: { errors: @card.errors.full_messages, status: :unauthorized }
     end
   end
 
   def update
     @card = Card.find(params[:id])
 
-    respond_to do |format|
-      if @card.update(card_params)
-        format.json { render json: @card, status: 201 }
-      else
-        format.json { render json: { errors: @card.errors.full_messages, status: :unprocessable_entity } }
-      end
+    if @card.update(card_params)
+      render json: @card, status: 201
+    else
+      render json: { errors: @card.errors.full_messages, status: :unprocessable_entity }
     end
   end
 
   def show
     @card = Card.find_by_id(params[:id])
-    respond_to do |format|
-      format.json { render json: @card, include: :children }
-    end
+    render json: @card, include: :children
   end
 
   def card_params

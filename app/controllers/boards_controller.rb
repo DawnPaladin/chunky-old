@@ -1,51 +1,42 @@
 class BoardsController < ApplicationController
 
   before_action :authenticate_user!
+  respond_to :json
 
   def create
     @board = current_user.boards.new(board_params)
 
-    respond_to do |format|
-      if @board.save
-        format.json { render json: @board }
-      else
-        format.json { render json: { errors: @board.errors.full_messages, status: :unprocessable_entity } }
-      end
+    if @board.save
+      render json: @board
+    else
+      render json: { errors: @board.errors.full_messages, status: :unprocessable_entity }
     end
   end
 
   def index
     @boards = current_user.boards
-    respond_to do |format|
-      format.json { render json: @boards }
-    end
+    render json: @boards
   end
 
   def show
     @board = current_user.boards.find_by_id(params[:id]);
-    respond_to do |format|
-      format.json do
-        render json: @board.as_json(include: {
-          lists: {
-            include: {
-              cards: {
-                include: :children
-              }
-            }
+    render json: @board.as_json(include: {
+      lists: {
+        include: {
+          cards: {
+            include: :children
           }
-        })
-      end
-    end
+        }
+      }
+    })
   end
 
   def destroy
     @board = current_user.boards.find_by_id(params[:id]);
-    respond_to do |format|
-      if @board.destroy
-        format.json { render json: @board }
-      else
-        format.json { render json: { errors: @board.errors.full_messages, status: :unprocessable_entity } }
-      end
+    if @board.destroy
+      render json: @board
+    else
+      render json: { errors: @board.errors.full_messages, status: :unprocessable_entity }
     end
   end
 
