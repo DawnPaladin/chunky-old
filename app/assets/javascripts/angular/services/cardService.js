@@ -1,6 +1,6 @@
 Chunky.factory('cardService',
-  [
-    function() {
+  ['Restangular',
+    function(Restangular) {
       var _cards = [];
       var exports = {};
 
@@ -10,6 +10,12 @@ Chunky.factory('cardService',
             _cards.push(card);
           });
         });
+      };
+
+      exports.save = function(card) {
+        Restangular.restangularizeElement(null, card, 'cards');
+        card.put();
+        // Restangular.one('cards', card.id).put({card: card});
       };
 
       return exports;

@@ -1,6 +1,6 @@
 Chunky.controller('BoardShowCtrl',
-  ['$scope', '$stateParams', 'boardService',
-    function($scope, $stateParams, boardService) {
+  ['$scope', '$stateParams', 'boardService', 'cardService',
+    function($scope, $stateParams, boardService, cardService) {
 
       boardService.show($stateParams.id).then(function(board) {
         $scope.board = board;
@@ -11,10 +11,11 @@ Chunky.controller('BoardShowCtrl',
         $scope.showEditable = function() {
           $scope.editDescription = true;
         };
-        $scope.hideEditable = function(content) {
+        $scope.hideEditable = function(card) {
           $scope.editDescription = false;
-          console.log(content);
-        }
+          console.log(card);
+          cardService.save(card);
+        };
       });
 
     }

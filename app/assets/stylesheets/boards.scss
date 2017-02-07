@@ -29,29 +29,3 @@
   font-weight: bold;
   margin-top: .5em;
 }
-
-.card {
-  background: white;
-  border-radius: 3px;
-  margin: 4px;
-  padding: .5em;
-  cursor: pointer;
-}
-
-.new-card {
-  text-align: center;
-  padding: .5em;
-  cursor: pointer;
-}
-
-.modal {
-  &.in { background: rgba(0,0,0,0.35)}
-  div.modal-content { box-shadow: none; }
-  .card-title {
-    font-weight: bold;
-    margin: .5em 0;
-  }
-  .card-field-name {
-    color: gray;
-  }
-}

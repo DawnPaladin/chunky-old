@@ -13,11 +13,11 @@
                 class="form-control"
                 ng-show="editDescription"
                 ng-model="card.description"
-                ng-blur="hideEditable(card.description)">
+                ng-blur="hideEditable(card)">
               </textarea>
               <button
                 class="btn btn-success"
-                ng-click="hideEditable(card.description)"
+                ng-click="hideEditable(card)"
                 ng-show="editDescription">
                 Save
               </button>
