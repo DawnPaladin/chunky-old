@@ -14,6 +14,17 @@
   }
 }
 
+.modal .card {
+  margin: .25em 0;
+  padding: 0;
+  .card-content {
+    padding: 0;
+  }
+  .completed-box {
+    padding: .5em .5em 0 0;
+  }
+}
+
 .modal {
   &.in { background: rgba(0,0,0,0.35)}
   div.modal-content { box-shadow: none; }

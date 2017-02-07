@@ -15,7 +15,9 @@ Chunky.factory('cardService',
         card.newChildCard = new BlankChildCardOf(card);
         card.createChildCard = function() {
           setupCard(card.newChildCard);
-          exports.create(card.newChildCard);
+          exports.create(card.newChildCard).then(function() {
+            card.get();
+          });
           card.newChildCard = new BlankChildCardOf(card);
           card.showNewCard = false;
         };

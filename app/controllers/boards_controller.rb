@@ -27,7 +27,11 @@ class BoardsController < ApplicationController
       format.json do
         render json: @board.as_json(include: {
           lists: {
-            include: :cards
+            include: {
+              cards: {
+                include: :children
+              }
+            }
           }
         })
       end

@@ -8,7 +8,7 @@ class CardsController < ApplicationController
     respond_to do |format|
       if @card.parent_id.is_a? Integer || @card.list.board.user == current_user # FIXME: Verify that an ancestor belongs to current user
         if @card.save
-          format.json { render json: @card }
+          format.json { render json: @card, include: { children: @card.children.to_json } }
         else
           format.json { render json: { errors: @card.errors.full_messages, status: :unprocessable_entity } }
         end

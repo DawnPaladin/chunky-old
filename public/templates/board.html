@@ -5,15 +5,7 @@
     <div class="list-name">{{ list.name }}</div>
 
     <div ng-repeat="card in list.cards | completed: false | orderBy: 'updated_at'">
-      <div class="card">
-        <div class="completed-box">
-          <input type="checkbox" ng-model="card.completed" ng-change="completionChange(card)">
-        </div>
-        <div class="card-content" ng-click="showCard(card.id)">
-          <div class="card-title">{{ card.title }}</div>
-          <span class="glyphicon glyphicon-align-left description-icon" aria-hidden="true" ng-show="card.description.length > 0"></span>
-        </div>
-      </div>
+      <card></card>
       <card-modal></card-modal>
     </div>
 
