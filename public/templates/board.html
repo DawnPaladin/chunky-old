@@ -7,7 +7,7 @@
     <div ng-repeat="card in list.cards | completed: false | orderBy: 'updated_at'">
       <div class="card">
         <div class="completed-box">
-          <input type="checkbox" ng-model="card.completed">
+          <input type="checkbox" ng-model="card.completed" ng-change="completionChange(card)">
         </div>
         <div class="card-content" ng-click="showCard(card.id)">
           <div class="card-title">{{ card.title }}</div>

@@ -16,6 +16,9 @@ Chunky.controller('BoardShowCtrl',
           $scope.editDescription = false;
           cardService.save(card);
         };
+        $scope.completionChange = function(card) {
+          cardService.save(card);
+        }
         $scope.createCard = listService.createCard;
       });
 
