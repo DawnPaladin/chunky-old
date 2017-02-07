@@ -1,6 +1,6 @@
 Chunky.controller('BoardShowCtrl',
-  ['$scope', '$stateParams', 'boardService', 'cardService',
-    function($scope, $stateParams, boardService, cardService) {
+  ['$scope', '$stateParams', 'boardService', 'listService', 'cardService',
+    function($scope, $stateParams, boardService, listService, cardService) {
 
       boardService.show($stateParams.id).then(function(board) {
         $scope.board = board;
@@ -16,6 +16,7 @@ Chunky.controller('BoardShowCtrl',
           console.log(card);
           cardService.save(card);
         };
+        $scope.createCard = listService.createCard;
       });
 
     }

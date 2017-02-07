@@ -18,6 +18,11 @@ Chunky.factory('cardService',
         // Restangular.one('cards', card.id).put({card: card});
       };
 
+      exports.create = function(card) {
+        Restangular.restangularizeElement(null, card, 'cards');
+        return card.post();
+      };
+
       return exports;
     }
   ]

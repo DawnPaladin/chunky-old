@@ -3,13 +3,17 @@ class CardsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @card = current_user.cards.new(card_params)
+    @card = Card.new(card_params)
 
     respond_to do |format|
-      if @card.save
-        format.json { render json: @card }
+      if @card.list.board.user == current_user
+        if @card.save
+          format.json { render json: @card }
+        else
+          format.json { render json: { errors: @card.errors.full_messages, status: :unprocessable_entity } }
+        end
       else
-        format.json { render json: { errors: @card.errors.full_messages, status: :unprocessable_entity } }
+        format.json { render json: { errors: @card.errors.full_messages, status: :unauthorized } }
       end
     end
   end

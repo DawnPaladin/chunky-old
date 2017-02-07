@@ -4,7 +4,7 @@ Chunky.factory('listService',
       var _lists;
       var exports = {};
 
-      var newCard = function() {
+      var addNewCard = function() {
         this.showNewCard = true;
       };
 
@@ -12,8 +12,24 @@ Chunky.factory('listService',
         _lists = lists;
         cardService.setup(lists);
         _lists.forEach(function(list) {
+          Restangular.restangularizeElement(null, list, 'lists');
           list.showNewCard = false;
-          list.newCard = newCard;
+          list.addNewCard = addNewCard;
+          list.newCard = {
+            list_id: list.id,
+            title: ""
+          };
+        });
+      };
+
+      exports.createCard = function(list) {
+        cardService.create(list.newCard).then(function() {
+          list.get().then(function() {
+            list.newCard = {
+              list_id: list.id,
+              title: ""
+            };
+          })
         });
       };
 
